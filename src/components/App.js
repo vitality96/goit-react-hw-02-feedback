@@ -39,7 +39,9 @@ export default class App extends Component {
         return (
             <>
                 <Section title="Please leave feedback">
-                    <FeedbackOptions options={this.state} onLeaveFeedback={this.onLeaveFeedback} />
+                    <div style={{display: "flex", justifyContent: "center"}}>
+                        <FeedbackOptions options={this.state} onLeaveFeedback={this.onLeaveFeedback} />
+                    </div>
                 </Section>
                 <Section title="Statistics">
                     {total > 0 ? (

@@ -1,0 +1,31 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding: 0%;
+}
+
+.item {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.8;
+    width: 200px;
+    padding: 10px;
+    border: 2px solid #2196F3;;
+    border-radius: 2px;
+    text-align: center;
+    
+    letter-spacing: 0.03em;
+    
+    color: black;
+    list-style: none;
+}
+
+.item:not(:last-child) {
+    margin-bottom: 10px;
+}
