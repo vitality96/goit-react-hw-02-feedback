@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
 import Statictics from "./Statistics/Statistics";
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Section from "./Section/Section";
@@ -12,6 +11,8 @@ export default class App extends Component {
         neutral: 0,
         bad: 0
     };
+
+    getKeys = () => Object.keys(this.state);
 
     countTotalFeedback() {
         const { good, neutral, bad } = this.state;
@@ -40,7 +41,7 @@ export default class App extends Component {
             <>
                 <Section title="Please leave feedback">
                     <div style={{display: "flex", justifyContent: "center"}}>
-                        <FeedbackOptions options={this.state} onLeaveFeedback={this.onLeaveFeedback} />
+                        <FeedbackOptions options={this.getKeys()} onLeaveFeedback={this.onLeaveFeedback} />
                     </div>
                 </Section>
                 <Section title="Statistics">
@@ -49,7 +50,7 @@ export default class App extends Component {
                         good={this.state.good}
                         neutral={this.state.neutral}
                         bad={this.state.bad}
-                        total={this.countTotalFeedback()}
+                        total={total}
                         positivePercentage={this.countPositiveFeedbackPercentage()}
                     />
                     ) : (
@@ -59,15 +60,4 @@ export default class App extends Component {
             </>
         );
     };
-};
-
-
-App.propTypes = {
-    state: PropTypes.arrayOf(
-        PropTypes.shape({
-            good: PropTypes.number.isRequired,
-            neutral: PropTypes.number.isRequired,
-            bad: PropTypes.number.isRequired,
-        })
-    ),
 };
